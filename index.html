@@ -5287,7 +5287,7 @@ Ym9keT4KPC9odG1sPgo=</textarea>
       <label>Apprenants (une ligne par apprenant)</label>
       <textarea id="sessLearners" placeholder="Marie DUPONT  marie.dupont@exemple.com  15/09/2026  18/09/2026  09h00-17h00
 Paul MARTIN  paul.martin@exemple.com  22/09/2026  24/09/2026  09h00-17h00"></textarea>
-      <div class="hint">Format : Prénom Nom  email  date début  date fin  horaires. Le nombre de jours ouvrés (hors samedi, dimanche et fériés) doit être égal au schéma choisi. Tous les modules d'un même jour partagent la date de ce jour.</div>
+      <div class="hint">Format : Prénom Nom  email  date début  date fin  horaires. Le nombre de jours (hors samedi et dimanche) doit être égal au schéma choisi. Un jour férié compte. Tous les modules d'un même jour partagent la date de ce jour.</div>
     </div>
     <div style="margin-top:16px">
       <button class="btn-ghost" onclick="analyzeRanges()">1. Analyser et proposer les pourcentages</button>
@@ -5749,8 +5749,7 @@ function isFerie(d){
 }
 function isJourOuvre(d){
   var day=d.getDay();
-  if(day===0||day===6)return false;
-  return !isFerie(d);
+  return day!==0&&day!==6;
 }
 
 /* STATE */
